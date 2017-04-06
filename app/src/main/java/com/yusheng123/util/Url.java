@@ -1,4 +1,4 @@
-package com.yusheng123.yushengzuche.util;
+package com.yusheng123.util;
 
 /**
  * Created by Monty on 2017/1/1.

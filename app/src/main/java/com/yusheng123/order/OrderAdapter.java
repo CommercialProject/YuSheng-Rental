@@ -1,4 +1,4 @@
-package com.yusheng123.yushengzuche.order;
+package com.yusheng123.order;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.yusheng123.yushengzuche.R;
-import com.yusheng123.yushengzuche.entity.Order;
-import com.yusheng123.yushengzuche.util.Url;
+import com.yusheng123.entity.Order;
+import com.yusheng123.util.Url;
 
 import java.util.ArrayList;
 import java.util.List;

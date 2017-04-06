@@ -1,8 +1,8 @@
-package com.yusheng123.yushengzuche.order;
+package com.yusheng123.order;
 
 import android.util.Log;
 
-import com.yusheng123.yushengzuche.util.Url;
+import com.yusheng123.util.Url;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 

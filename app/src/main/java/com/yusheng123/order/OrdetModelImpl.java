@@ -1,7 +1,7 @@
-package com.yusheng123.yushengzuche.order;
+package com.yusheng123.order;
 
-import com.yusheng123.yushengzuche.entity.Order;
-import com.yusheng123.yushengzuche.util.JsonUtil;
+import com.yusheng123.entity.Order;
+import com.yusheng123.util.JsonUtil;
 
 import java.util.List;
 

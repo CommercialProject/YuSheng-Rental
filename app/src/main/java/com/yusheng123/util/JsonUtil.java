@@ -1,8 +1,8 @@
-package com.yusheng123.yushengzuche.util;
+package com.yusheng123.util;
 
 import android.content.res.AssetManager;
 
-import com.yusheng123.yushengzuche.App;
+import com.yusheng123.App;
 
 import java.io.BufferedReader;
 import java.io.IOException;

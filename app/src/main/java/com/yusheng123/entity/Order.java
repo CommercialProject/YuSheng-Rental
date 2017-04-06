@@ -1,4 +1,4 @@
-package com.yusheng123.yushengzuche.entity;
+package com.yusheng123.entity;
 
 /**
  * Created by Monty on 2017/1/4.

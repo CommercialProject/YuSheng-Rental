@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.yusheng123.yushengzuche.MainActivity">
+    tools:context="com.yusheng123.yushengzuche.com.yusheng123.MainActivity">
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"

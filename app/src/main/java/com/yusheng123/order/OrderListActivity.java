@@ -1,4 +1,4 @@
-package com.yusheng123.yushengzuche.order;
+package com.yusheng123.order;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,8 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.yusheng123.yushengzuche.R;
-import com.yusheng123.yushengzuche.entity.Order;
-import com.yusheng123.yushengzuche.widget.DividerItemDecoration;
+import com.yusheng123.entity.Order;
+import com.yusheng123.widget.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;

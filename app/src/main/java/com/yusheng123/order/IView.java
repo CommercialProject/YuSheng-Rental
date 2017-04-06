@@ -1,6 +1,6 @@
-package com.yusheng123.yushengzuche.order;
+package com.yusheng123.order;
 
-import com.yusheng123.yushengzuche.entity.Order;
+import com.yusheng123.entity.Order;
 
 import java.util.List;
 

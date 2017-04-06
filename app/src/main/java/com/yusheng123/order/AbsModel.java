@@ -1,4 +1,4 @@
-package com.yusheng123.yushengzuche.order;
+package com.yusheng123.order;
 
 import android.util.Log;
 
@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.yusheng123.yushengzuche.entity.Order;
+import com.yusheng123.entity.Order;
 
 import java.util.ArrayList;
 import java.util.List;

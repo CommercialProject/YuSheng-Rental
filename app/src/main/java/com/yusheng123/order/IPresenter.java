@@ -1,4 +1,4 @@
-package com.yusheng123.yushengzuche.order;
+package com.yusheng123.order;
 
 /**
  * Created by Monty on 2017/1/4.
