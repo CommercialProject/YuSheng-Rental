@@ -1,4 +1,4 @@
-package com.yusheng123.yushengzuche;
+package com.yusheng123;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

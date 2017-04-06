@@ -1,4 +1,4 @@
-package com.yusheng123.yushengzuche;
+package com.yusheng123;
 
 import org.junit.Test;
 
