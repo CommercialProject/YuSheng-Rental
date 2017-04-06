@@ -1,0 +1,308 @@
+{
+  "content": [
+    {
+      "id": "edcd090d962e4fea8f04d9b6dd51d7e9",
+      "ctime": "2017-01-04 14:31:37",
+      "startTime": "2017-01-20 00:00",
+      "endTime": "2017-02-04 14:31",
+      "dictItem": {
+        "id": "6",
+        "ctime": "2016-11-11 16:09:38",
+        "name": "已取消",
+        "code": "2",
+        "dict": {
+          "id": "2",
+          "ctime": "2016-11-11 16:08:16",
+          "name": "订单状态"
+        }
+      },
+      "members": {
+        "id": "1419bef70bae438eabe0dcd1c3621129",
+        "ctime": "2017-01-04 14:17:46",
+        "nickName": "十三月十四",
+        "score": 0,
+        "phone": "18062102702",
+        "idCard": "",
+        "openId": "o_gUowUfmXjPWeCafyT6MVKYWUxk",
+        "headimgurl": "http://wx.qlogo.cn/mmopen/libe6ANfdaJbksFYGrvqkiaEzCqJCpKwMa2Kd817PJkRD43dyt98miawVusic8Q2NEpGibMew797xicNL2sROAOFbG8S9EPylCia61m/0",
+        "sex": "男",
+        "country": "中国",
+        "province": "河北",
+        "city": "张家口",
+        "language": "zh_CN"
+      },
+      "takeStore": {
+        "id": "5dd2c61c66b34355b1a22edf0c617f3b",
+        "ctime": "2016-12-20 08:26:10",
+        "name": "麻城店",
+        "phone": "0713-2836110",
+        "longitude": "",
+        "latitude": "",
+        "divisionCode": "421181",
+        "address": "金丰一品园"
+      },
+      "yetStore": {
+        "id": "5dd2c61c66b34355b1a22edf0c617f3b",
+        "ctime": "2016-12-20 08:26:10",
+        "name": "麻城店",
+        "phone": "0713-2836110",
+        "longitude": "",
+        "latitude": "",
+        "divisionCode": "421181",
+        "address": "金丰一品园"
+      },
+      "car": {
+        "id": "75143af74f764a1b92c61fe86e3a0c40",
+        "ctime": "2016-12-27 12:04:46",
+        "name": "L60",
+        "number": null,
+        "img": "/static/res/car/1482811459341.jpg",
+        "rent": 158.0,
+        "output": "1.8",
+        "safeMoney": 50,
+        "licensing": 3000,
+        "inStock": 1,
+        "totalNumber": 1,
+        "struct": {
+          "id": "20",
+          "ctime": "2016-11-21 15:32:47",
+          "name": "三厢",
+          "code": "0",
+          "dict": {
+            "id": "3",
+            "ctime": "2016-11-21 15:31:42",
+            "name": "车身结构"
+          }
+        },
+        "automatic": {
+          "id": "31",
+          "ctime": "2016-11-21 15:34:16",
+          "name": "自动",
+          "code": "1",
+          "dict": {
+            "id": "4",
+            "ctime": "2016-11-21 15:32:03",
+            "name": "手动/自动"
+          }
+        },
+        "valueAdd": {
+          "id": "5c46e1551aa642ceafe0101da09f40d7",
+          "ctime": "2016-12-27 11:30:37",
+          "name": "增值业务",
+          "safetySeat": 30,
+          "except": 30
+        },
+        "brand": {
+          "id": "400d5cddc68741f2bb127b6be53d4a49",
+          "ctime": "2016-12-20 10:30:34",
+          "name": "风神",
+          "brand": {
+            "id": "7a4afbea52674cc89676a421f49a9f77",
+            "ctime": "2016-12-20 10:30:19",
+            "name": "东风",
+            "brand": {
+              "id": "0",
+              "ctime": null,
+              "name": "所有品牌",
+              "brand": null
+            }
+          }
+        },
+        "dictItem": {
+          "id": "1",
+          "ctime": "2016-11-08 18:14:43",
+          "name": "正常",
+          "code": "0",
+          "dict": {
+            "id": "1",
+            "ctime": "2016-11-08 18:14:11",
+            "name": "车子状态"
+          }
+        },
+        "store": {
+          "id": "5dd2c61c66b34355b1a22edf0c617f3b",
+          "ctime": "2016-12-20 08:26:10",
+          "name": "麻城店",
+          "phone": "0713-2836110",
+          "longitude": "",
+          "latitude": "",
+          "divisionCode": "421181",
+          "address": "金丰一品园"
+        },
+        "poundage": 0
+      },
+      "remark": "",
+      "money": "158.00",
+      "baseSafeMoney": "50元*7天=350元",
+      "poundage": "20元",
+      "safetySeat": "无",
+      "except": "无",
+      "isPay": "未付款",
+      "totalMoney": "2835.57",
+      "licensing": "3000",
+      "rentDay": "15天 14时 31分 37秒 ",
+      "expiretime": "已取消"
+    },
+    {
+      "id": "7ab48aec5d594a83923d2fb0ca3d7f10",
+      "ctime": "2017-01-01 19:42:56",
+      "startTime": "2017-01-23 19:42",
+      "endTime": "2017-01-26 19:42",
+      "dictItem": {
+        "id": "6",
+        "ctime": "2016-11-11 16:09:38",
+        "name": "已取消",
+        "code": "2",
+        "dict": {
+          "id": "2",
+          "ctime": "2016-11-11 16:08:16",
+          "name": "订单状态"
+        }
+      },
+      "members": {
+        "id": "fa6830aa515848a7b19bc049c965cba5",
+        "ctime": "2016-12-20 14:01:14",
+        "nickName": "Monty",
+        "score": 0,
+        "phone": "18688827660",
+        "idCard": "",
+        "openId": "o_gUowXv--pylG-NR1DT2vk2Wrd8",
+        "headimgurl": "http://wx.qlogo.cn/mmopen/b2ONlmmVZRpJx1MjzaXOZfPEtuavECgugEuJb9wTlvCFDvWqLCbzKthBb4IqJR4a9PwlgyIEC4R19mRREPsa9CJFef9rCiagia/0",
+        "sex": "男",
+        "country": "中国",
+        "province": "湖北",
+        "city": "黄冈",
+        "language": "zh_CN"
+      },
+      "takeStore": {
+        "id": "5dd2c61c66b34355b1a22edf0c617f3b",
+        "ctime": "2016-12-20 08:26:10",
+        "name": "麻城店",
+        "phone": "0713-2836110",
+        "longitude": "",
+        "latitude": "",
+        "divisionCode": "421181",
+        "address": "金丰一品园"
+      },
+      "yetStore": {
+        "id": "5dd2c61c66b34355b1a22edf0c617f3b",
+        "ctime": "2016-12-20 08:26:10",
+        "name": "麻城店",
+        "phone": "0713-2836110",
+        "longitude": "",
+        "latitude": "",
+        "divisionCode": "421181",
+        "address": "金丰一品园"
+      },
+      "car": {
+        "id": "aedc4dc89dea43968bde6f7bdabf57d2",
+        "ctime": "2017-01-04 09:24:45",
+        "name": "纳智捷U6",
+        "number": null,
+        "img": null,
+        "rent": 200.0,
+        "output": "1.8T",
+        "safeMoney": 50,
+        "licensing": 3000,
+        "inStock": 0,
+        "totalNumber": 1,
+        "struct": {
+          "id": "20",
+          "ctime": "2016-11-21 15:32:47",
+          "name": "三厢",
+          "code": "0",
+          "dict": {
+            "id": "3",
+            "ctime": "2016-11-21 15:31:42",
+            "name": "车身结构"
+          }
+        },
+        "automatic": {
+          "id": "30",
+          "ctime": "2016-11-21 15:34:03",
+          "name": "手动",
+          "code": "0",
+          "dict": {
+            "id": "4",
+            "ctime": "2016-11-21 15:32:03",
+            "name": "手动/自动"
+          }
+        },
+        "valueAdd": {
+          "id": "5c46e1551aa642ceafe0101da09f40d7",
+          "ctime": "2016-12-27 11:30:37",
+          "name": "增值业务",
+          "safetySeat": 30,
+          "except": 30
+        },
+        "brand": {
+          "id": "855288a8e82b4adf94c72d7d27cf028a",
+          "ctime": "2016-12-20 08:41:15",
+          "name": "U6",
+          "brand": {
+            "id": "182075154c91456da5a1987dbe0ef9f1",
+            "ctime": "2016-12-20 08:39:20",
+            "name": "纳智捷",
+            "brand": {
+              "id": "0",
+              "ctime": null,
+              "name": "所有品牌",
+              "brand": null
+            }
+          }
+        },
+        "dictItem": {
+          "id": "1",
+          "ctime": "2016-11-08 18:14:43",
+          "name": "正常",
+          "code": "0",
+          "dict": {
+            "id": "1",
+            "ctime": "2016-11-08 18:14:11",
+            "name": "车子状态"
+          }
+        },
+        "store": {
+          "id": "5dd2c61c66b34355b1a22edf0c617f3b",
+          "ctime": "2016-12-20 08:26:10",
+          "name": "麻城店",
+          "phone": "0713-2836110",
+          "longitude": "",
+          "latitude": "",
+          "divisionCode": "421181",
+          "address": "金丰一品园"
+        },
+        "poundage": 0
+      },
+      "remark": null,
+      "money": "600.00",
+      "baseSafeMoney": "50元*3天=150元",
+      "poundage": "20元",
+      "safetySeat": "30元",
+      "except": "30元*3天=90元",
+      "isPay": "未付款",
+      "totalMoney": "890.00",
+      "licensing": "3000.00",
+      "rentDay": "3天 ",
+      "expiretime": "已取消"
+    }
+  ],
+  "totalPages": 1,
+  "totalElements": 2,
+  "firstPage": true,
+  "lastPage": true,
+  "last": true,
+  "numberOfElements": 2,
+  "first": true,
+  "sort": [
+    {
+      "direction": "DESC",
+      "property": "ctime",
+      "ignoreCase": false,
+      "nullHandling": "NATIVE",
+      "ascending": false
+    }
+  ],
+  "size": 10,
+  "number": 0
+}
