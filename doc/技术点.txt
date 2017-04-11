@@ -1,0 +1,18 @@
+技术点
+	
+	整体开发模式
+		MVP-clean
+	网络请求及异步处理
+		RxJava2 + Retrofit2
+		Okhttp
+		Gson
+	图片加载
+		Glide
+	数据缓存
+	
+	内存泄漏检测及其优化
+	
+	其他
+		Android M+运行时权限申请封装
+		异常捕获处理封装
+		
