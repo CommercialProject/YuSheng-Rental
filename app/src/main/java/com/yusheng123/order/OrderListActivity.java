@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
-import com.yusheng123.yushengzuche.R;
+import com.yusheng123.R;
 import com.yusheng123.entity.Order;
 import com.yusheng123.widget.DividerItemDecoration;
 

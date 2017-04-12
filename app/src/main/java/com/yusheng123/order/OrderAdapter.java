@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.yusheng123.yushengzuche.R;
+import com.yusheng123.R;
 import com.yusheng123.entity.Order;
 import com.yusheng123.util.Url;
 
