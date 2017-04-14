@@ -1,12 +1,9 @@
 package com.yusheng123;
 
 import android.app.Application;
-import android.os.Environment;
-import android.widget.Toast;
+import android.util.Log;
 
 import com.yusheng123.fix.FixDexManager;
-
-import java.io.File;
 
 /**
  * Created by Monty on 2017/1/2.
@@ -16,7 +13,9 @@ public class App extends Application {
 
     private static App app;
 
-    public static App getInstans(){
+    private final String TAG = App.class.getName();
+
+    public static App getInstans() {
         return app;
     }
 
@@ -24,21 +23,20 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
-//        fixBug();
+        fixBug();
     }
 
+    /**
+     * 修复bug
+     */
     private void fixBug() {
-        File fixFile = new File(Environment.getExternalStorageDirectory(), "fix.dex");
-        if (fixFile.exists()) {
+        try {
             FixDexManager fixDexManager = new FixDexManager(this);
-            try {
-                fixDexManager.fixDex(fixFile.getAbsolutePath());
-                Toast.makeText(this, "修复成功", Toast.LENGTH_LONG).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(this, "修复失败", Toast.LENGTH_LONG).show();
-            }
-
+            fixDexManager.loadFixDex();
+            Log.i(TAG, "修复成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i(TAG, "修复失败");
         }
     }
 }
