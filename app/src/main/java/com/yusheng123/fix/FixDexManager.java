@@ -116,6 +116,7 @@ public class FixDexManager {
      * 加载应用内部存在的dex文件，并修复bug
      */
     public void loadFixDex() throws Exception {
+        //筛选出后缀为.dex的文件
         File[] dexFiles = mDexDir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
@@ -123,6 +124,7 @@ public class FixDexManager {
             }
         });
         if (dexFiles.length != 0) {
+            //fixbug
             fix(dexFiles);
         } else {
             Log.i(TAG, "no dexfiles!");
@@ -131,7 +133,7 @@ public class FixDexManager {
     }
 
     /**
-     * 修复不过
+     * 修复bug
      *
      * @param dexFiles 没有bug的文件数组
      * @throws Exception
