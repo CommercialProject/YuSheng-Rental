@@ -10,8 +10,16 @@ import android.view.View;
 public abstract class BannerAdapter {
     /**
      * 根据位置获取view
+     *
      * @param position
      * @return
      */
     public abstract View getView(int position);
+
+    /**
+     * 获取轮播的数量
+     *
+     * @return
+     */
+    public abstract int getCount();
 }
