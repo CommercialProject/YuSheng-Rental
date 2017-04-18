@@ -225,7 +225,7 @@ public class App extends Application {
 
                 @Override
                 public void onActivityDestroyed(Activity activity) {
-                    if (null == mActivitys && mActivitys.isEmpty()) {
+                    if (null == mActivitys || mActivitys.isEmpty()) {
                         return;
                     }
                     if (mActivitys.contains(activity)) {
