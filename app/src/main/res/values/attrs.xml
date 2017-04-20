@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BannerView">
+        <!--定义宽高比-->
+        <attr name="widthPropertion" format="float" />
+        <attr name="heightPropertion" format="float"/>
+
+    </declare-styleable>
+</resources>

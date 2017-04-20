@@ -1,5 +1,7 @@
 package com.yusheng123.widget.banner;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -11,10 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
- * 使用之前最后先看下viewpager的setadapter 和 setcurrentItem源码
  * Created by 花歹 on 2017/4/16.
  * Email:   gatsbywang@126.com
  */
@@ -31,7 +34,7 @@ public class BannerViewPager extends ViewPager {
     private final int SCROLL_MSG = 0x0011;
 
     //页面切换间隔时间
-    private int mDefaultIntervalTime = 2050;
+    private int mDefaultIntervalTime = 3500;
 
     private final String TAG = BannerViewPager.class.getName();
     //实现自动轮播的handler
@@ -42,9 +45,11 @@ public class BannerViewPager extends ViewPager {
             setCurrentItem(getCurrentItem() + 1);
             //不断轮询
             startRoll();
-            Log.e(TAG, "handleMessage");
         }
     };
+
+    //复用界面
+    private List<View> mConverView;
 
     public BannerViewPager(Context context) {
         this(context, null);
@@ -62,6 +67,8 @@ public class BannerViewPager extends ViewPager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        mConverView = new ArrayList<>();
     }
 
     /**
@@ -76,6 +83,9 @@ public class BannerViewPager extends ViewPager {
     public void setAdapter(BannerAdapter adapter) {
         mAdapter = adapter;
         setAdapter(new BannerPagerAdapter());
+
+        //管理activity生命周期
+        ((Activity) getContext()).getApplication().registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
     }
 
     /**
@@ -86,6 +96,8 @@ public class BannerViewPager extends ViewPager {
         mHandler.removeMessages(SCROLL_MSG);
         //再添加消息
         mHandler.sendEmptyMessageDelayed(SCROLL_MSG, mDefaultIntervalTime);
+
+        Log.e(TAG, "startRoll");
     }
 
     /**
@@ -93,9 +105,12 @@ public class BannerViewPager extends ViewPager {
      */
     @Override
     protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
+        //清除消息，handler的内存优化
         mHandler.removeMessages(SCROLL_MSG);
         mHandler = null;
+        //解除绑定
+        ((Activity) getContext()).getApplication().unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
+        super.onDetachedFromWindow();
     }
 
     /**
@@ -119,16 +134,39 @@ public class BannerViewPager extends ViewPager {
          * 创建页面
          *
          * @param container viewpager
-         * @param position  并不是当前的页面所处的位置，由于创建页面还包括缓存页面，所以此position还可能是缓存页面
-         *                  的position
+         * @param position
          * @return
          */
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
+        public Object instantiateItem(ViewGroup container, final int position) {
             // 采取adapter设计模式，为了完全让用户自定义
-            View itemView = mAdapter.getView(position);
+            //position 0 -> 2的31
+            View itemView = mAdapter.getView(position % mAdapter.getCount(), getConverView());
             container.addView(itemView);
+            itemView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.click(position % mAdapter.getCount());
+                    }
+                }
+            });
             return itemView;
+        }
+
+        /**
+         * 获取复用界面
+         *
+         * @return
+         */
+        private View getConverView() {
+            for (int i = 0; i < mConverView.size(); i++) {
+                //获取没有在viewpager中的界面
+                if (mConverView.get(i).getParent() == null) {
+                    return mConverView.get(i);
+                }
+            }
+            return null;
         }
 
 
@@ -136,14 +174,47 @@ public class BannerViewPager extends ViewPager {
          * 销毁页面
          *
          * @param container viewpager
-         * @param position  并不是当前的页面所处的位置，由于销毁页面还包括缓存页面，所以此position还可能是缓存页面
-         *                  的position
+         * @param position
          * @param object    当前页面的view
          */
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView((View) object);
-            object = null;
+            mConverView.add((View) object);
         }
     }
+
+
+    private BannerItemClickListener mListener;
+
+    public void setOnBannerItemClickListener(BannerItemClickListener listener) {
+        this.mListener = listener;
+    }
+
+    public interface BannerItemClickListener {
+        public void click(int position);
+    }
+
+    //管理Activity的生命周期
+    private Application.ActivityLifecycleCallbacks activityLifecycleCallbacks = new DefaultActivityLifecycleCallbaks() {
+
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+            //判断是不是监听了当前的activity的生命周期
+            if (activity == getContext()) {
+                //开启轮播
+                mHandler.sendEmptyMessageDelayed(SCROLL_MSG, mDefaultIntervalTime);
+            }
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+            if (activity == getContext()) {
+                //暂停轮播
+                mHandler.removeMessages(SCROLL_MSG);
+            }
+        }
+
+    };
 }
