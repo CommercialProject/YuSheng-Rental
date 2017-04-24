@@ -85,7 +85,7 @@ public class BannerViewPager extends ViewPager {
         setAdapter(new BannerPagerAdapter());
 
         //管理activity生命周期
-        ((Activity) getContext()).getApplication().registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
+//        ((Activity) getContext()).getApplication().registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
     }
 
     /**
@@ -109,7 +109,7 @@ public class BannerViewPager extends ViewPager {
         mHandler.removeMessages(SCROLL_MSG);
         mHandler = null;
         //解除绑定
-        ((Activity) getContext()).getApplication().unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
+//        ((Activity) getContext()).getApplication().unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
         super.onDetachedFromWindow();
     }
 
@@ -196,25 +196,25 @@ public class BannerViewPager extends ViewPager {
     }
 
     //管理Activity的生命周期
-    private Application.ActivityLifecycleCallbacks activityLifecycleCallbacks = new DefaultActivityLifecycleCallbaks() {
-
-
-        @Override
-        public void onActivityResumed(Activity activity) {
-            //判断是不是监听了当前的activity的生命周期
-            if (activity == getContext()) {
-                //开启轮播
-                mHandler.sendEmptyMessageDelayed(SCROLL_MSG, mDefaultIntervalTime);
-            }
-        }
-
-        @Override
-        public void onActivityPaused(Activity activity) {
-            if (activity == getContext()) {
-                //暂停轮播
-                mHandler.removeMessages(SCROLL_MSG);
-            }
-        }
-
-    };
+//    private Application.ActivityLifecycleCallbacks activityLifecycleCallbacks = new DefaultActivityLifecycleCallbaks() {
+//
+//
+//        @Override
+//        public void onActivityResumed(Activity activity) {
+//            //判断是不是监听了当前的activity的生命周期
+//            if (activity == getContext()) {
+//                //开启轮播
+//                mHandler.sendEmptyMessageDelayed(SCROLL_MSG, mDefaultIntervalTime);
+//            }
+//        }
+//
+//        @Override
+//        public void onActivityPaused(Activity activity) {
+//            if (activity == getContext()) {
+//                //暂停轮播
+//                mHandler.removeMessages(SCROLL_MSG);
+//            }
+//        }
+//
+//    };
 }
