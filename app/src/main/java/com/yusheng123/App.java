@@ -32,6 +32,8 @@ public class App extends Application {
         return app;
     }
 
+    private ActivityLifecycleObserver mObserver = new ActivityLifecycleObserver();
+
     /**
      * 维护Activity 的list
      */
@@ -48,16 +50,16 @@ public class App extends Application {
     }
 
     private void initBmob() {
-        BmobConfig config =new BmobConfig.Builder(this)
-        ////设置appkey
-        .setApplicationId(BmobConfigs.Application_Id)
-        ////请求超时时间（单位为秒）：默认15s
-        .setConnectTimeout(30)
-        ////文件分片上传时每片的大小（单位字节），默认512*1024
-        .setUploadBlockSize(1024*1024)
-        ////文件的过期时间(单位为秒)：默认1800s
-        .setFileExpiration(2500)
-        .build();
+        BmobConfig config = new BmobConfig.Builder(this)
+                ////设置appkey
+                .setApplicationId(BmobConfigs.Application_Id)
+                ////请求超时时间（单位为秒）：默认15s
+                .setConnectTimeout(30)
+                ////文件分片上传时每片的大小（单位字节），默认512*1024
+                .setUploadBlockSize(1024 * 1024)
+                ////文件的过期时间(单位为秒)：默认1800s
+                .setFileExpiration(2500)
+                .build();
         Bmob.initialize(config);
     }
 
@@ -77,6 +79,7 @@ public class App extends Application {
 
     /**
      * 添加Activity到列表中
+     *
      * @param activity
      */
     public void pushActivity(Activity activity) {
@@ -115,6 +118,7 @@ public class App extends Application {
 
     /**
      * 结束一个Activity
+     *
      * @param activity 要结束的Activity
      */
     public static void finishActivity(Activity activity) {
@@ -129,6 +133,7 @@ public class App extends Application {
 
     /**
      * 根据指定类名结束Activity
+     *
      * @param cls 要结束的Activity类名
      */
     public static void finishActivity(Class<?> cls) {
@@ -163,6 +168,7 @@ public class App extends Application {
 
     /**
      * 返回栈顶的Activity
+     *
      * @return
      */
     public static Activity getTopActivity() {
@@ -203,58 +209,100 @@ public class App extends Application {
         }
     }
 
+
+    class ActivityLifecycleObserver extends Observer implements ActivityLifecycleCallbacks {
+
+        @Override
+        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+            /**
+             *  监听到 Activity创建事件 将该 Activity 加入list
+             */
+            pushActivity(activity);
+
+            //其他观察者同时调用
+            for (int i = mObservers.size() - 1; i >= 0; i--) {
+                mObservers.get(i).onActivityCreated(activity, savedInstanceState);
+            }
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+            //其他观察者同时调用
+            for (int i = mObservers.size() - 1; i >= 0; i--) {
+                mObservers.get(i).onActivityStarted(activity);
+            }
+        }
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+            //其他观察者同时调用
+            for (int i = mObservers.size() - 1; i >= 0; i--) {
+                mObservers.get(i).onActivityResumed(activity);
+            }
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+            //其他观察者同时调用
+            for (int i = mObservers.size() - 1; i >= 0; i--) {
+                mObservers.get(i).onActivityPaused(activity);
+            }
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+            //其他观察者同时调用
+            for (int i = mObservers.size() - 1; i >= 0; i--) {
+                mObservers.get(i).onActivityStopped(activity);
+            }
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+            //其他观察者同时调用
+            for (int i = mObservers.size() - 1; i >= 0; i--) {
+                mObservers.get(i).onActivitySaveInstanceState(activity, outState);
+            }
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+            if (null == mActivitys || mActivitys.isEmpty()) {
+                return;
+            }
+            if (mActivitys.contains(activity)) {
+                /**
+                 *  监听到 Activity销毁事件 将该Activity 从list中移除
+                 */
+                popActivity(activity);
+            }
+
+            //其他观察者同时调用
+            for (int i = mObservers.size() - 1; i >= 0; i--) {
+                mObservers.get(i).onActivityDestroyed(activity);
+            }
+        }
+    }
+
     /**
      * 注册全局Activity生命周期监听
      */
-    private void registerActivityListener() {
+    public void registerActivityListener() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
-                @Override
-                public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                    /**
-                     *  监听到 Activity创建事件 将该 Activity 加入list
-                     */
-                    pushActivity(activity);
-                }
+            registerActivityLifecycleCallbacks(mObserver);
+        }
+    }
 
-                @Override
-                public void onActivityStarted(Activity activity) {
 
-                }
+    public void registerActivityLifeCycleObserver(ActivityLifecycleCallbacks observer) {
+        if (mObserver != null) {
+            mObserver.registerObserver(observer);
+        }
+    }
 
-                @Override
-                public void onActivityResumed(Activity activity) {
-
-                }
-
-                @Override
-                public void onActivityPaused(Activity activity) {
-
-                }
-
-                @Override
-                public void onActivityStopped(Activity activity) {
-
-                }
-
-                @Override
-                public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
-                }
-
-                @Override
-                public void onActivityDestroyed(Activity activity) {
-                    if (null == mActivitys || mActivitys.isEmpty()) {
-                        return;
-                    }
-                    if (mActivitys.contains(activity)) {
-                        /**
-                         *  监听到 Activity销毁事件 将该Activity 从list中移除
-                         */
-                        popActivity(activity);
-                    }
-                }
-            });
+    public void unRegisterActivityLifeCycleObserver(ActivityLifecycleCallbacks observer) {
+        if (mObserver != null) {
+            mObserver.unregisterObserver(observer);
         }
     }
 }
