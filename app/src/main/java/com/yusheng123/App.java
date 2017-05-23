@@ -44,6 +44,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
+        //热修复写在这比较耗时，加载控制在0.4s内是合理的，待优化
         fixBug();
         registerActivityListener();
         initBmob();
